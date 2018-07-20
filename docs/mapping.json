@@ -8,9 +8,6 @@
             "duration": {
                 "type": "long"
             },
-            "environment": {
-                "type": "nested"
-            },
             "jobName": {
                 "index": "not_analyzed",
                 "type": "string"

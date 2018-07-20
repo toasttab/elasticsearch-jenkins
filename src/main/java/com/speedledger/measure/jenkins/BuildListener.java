@@ -99,22 +99,12 @@ public class BuildListener extends RunListener<Run> {
     private Build createBuild(Run run, TaskListener listener) {
         final Job job = run.getParent();
 
-        EnvVars environment = null;
-        try {
-            environment = run.getEnvironment(listener);
-        } catch (IOException e) {
-            LOG.log(Level.WARNING, "Error getting environment", e);
-        } catch (InterruptedException e) {
-            LOG.log(Level.WARNING, "Error getting environment", e);
-        }
-
         final Build build = new Build();
         build.setDuration(run.getDuration());
         build.setJobName(job.getFullName());
         build.setResult(run.getResult().toString());
         build.setStartTime(run.getStartTimeInMillis());
         build.setNumber(run.getNumber());
-        build.setEnvironment(environment);
         build.setTimestamp(run.getTimestamp());
 
         return build;
