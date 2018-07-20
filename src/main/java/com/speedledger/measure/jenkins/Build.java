@@ -72,11 +72,11 @@ public class Build {
     }
 
     public String getTimestamp() {
-      return timestamp;
+        return timestamp;
     }
 
     public void setTimestamp(Calendar timestamp) {
-         this.timestamp = DATE_FORMATTER.format(timestamp.getTime());
+        this.timestamp = DATE_FORMATTER.format(timestamp.getTime());
     }
 
 
