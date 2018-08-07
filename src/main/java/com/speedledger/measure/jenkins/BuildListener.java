@@ -84,15 +84,15 @@ public class BuildListener extends RunListener<Run> {
                 final JestResult result = jestClient.execute(index);
 
                 if (result.isSucceeded()) {
-                    LOG.fine("Sent build to Elasticsearch: " + build);
+                    LOG.info("Sent build to Elasticsearch: " + build);
                 } else {
-                    LOG.warning("Failed to index build, got error message: " + result.getErrorMessage());
+                    LOG.info("Failed to index build, got error message: " + result.getErrorMessage());
                 }
             } catch (Exception e) {
                 LOG.log(Level.SEVERE, "Error when sending build data: " + build, e);
             }
         } else {
-            LOG.fine("The configuration is not valid, can not index the build");
+            LOG.info("The configuration is not valid, can not index the build");
         }
     }
 

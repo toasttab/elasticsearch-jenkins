@@ -25,7 +25,7 @@ public class ElasticsearchPlugin extends Plugin {
     public void start() throws Exception {
         Items.XSTREAM.registerConverter(new Config.ConverterImpl());
         load();
-        LOG.fine("Loading config: " + config);
+        LOG.info("Loading config: " + config);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ElasticsearchPlugin extends Plugin {
         String indexName = jsonObject.getString("elasticsearchIndexName");
         String typeName = jsonObject.getString("elasticsearchTypeName");
         config = new Config(url, indexName, typeName);
-        LOG.fine("Saving config: " + config);
+        LOG.info("Saving config: " + config);
         save();
     }
 
