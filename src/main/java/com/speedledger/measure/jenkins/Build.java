@@ -18,17 +18,19 @@ public class Build {
     private String result;
     private long startTime;
     private long duration;
+    private long queueTime;
 
     public Build() {
     }
 
-    public Build(String timestamp, int number, String jobName, String result, long startTime, long duration) {
+    public Build(String timestamp, int number, String jobName, String result, long startTime, long duration, long queueTime) {
         this.timestamp = timestamp;
         this.number = number;
         this.jobName = jobName;
         this.result = result;
         this.startTime = startTime;
         this.duration = duration;
+        this.queueTime = queueTime;
     }
 
     public String getJobName() {
@@ -79,6 +81,14 @@ public class Build {
         this.timestamp = DATE_FORMATTER.format(timestamp.getTime());
     }
 
+    public long getQueueTime() {
+        return queueTime;
+    }
+
+    public void setQueueTime(long queueTime) {
+        this.queueTime = queueTime;
+    }
+
 
     @Override
     public String toString() {
@@ -89,6 +99,7 @@ public class Build {
                 ", result='" + result + '\'' +
                 ", startTime=" + startTime +
                 ", duration=" + duration +
+                ", queueTime=" + queueTime +
                 '}';
     }
 }

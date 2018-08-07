@@ -22,6 +22,9 @@
             "startTime": {
                 "format": "dateOptionalTime",
                 "type": "date"
+            },
+            "queueTime": {
+                "type": "long"
             }
         }
     }

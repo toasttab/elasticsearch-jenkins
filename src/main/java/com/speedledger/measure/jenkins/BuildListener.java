@@ -15,6 +15,7 @@ import io.searchbox.client.config.ClientConfig;
 import io.searchbox.client.config.HttpClientConfig;
 import io.searchbox.core.Index;
 import jenkins.model.Jenkins;
+import jenkins.metrics.impl.TimeInQueueAction;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -98,6 +99,7 @@ public class BuildListener extends RunListener<Run> {
 
     private Build createBuild(Run run, TaskListener listener) {
         final Job job = run.getParent();
+        final TimeInQueueAction action = run.getAction(TimeInQueueAction.class);
 
         final Build build = new Build();
         build.setDuration(run.getDuration());
@@ -106,6 +108,7 @@ public class BuildListener extends RunListener<Run> {
         build.setStartTime(run.getStartTimeInMillis());
         build.setNumber(run.getNumber());
         build.setTimestamp(run.getTimestamp());
+        build.setQueueTime(action.getQueuingTimeMillis());
 
         return build;
     }
