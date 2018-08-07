@@ -25,6 +25,10 @@
             },
             "queueTime": {
                 "type": "long"
+            },
+            "cause": {
+                "index": "not_analyzed",
+                "type": "string"
             }
         }
     }

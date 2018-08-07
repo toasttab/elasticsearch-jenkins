@@ -19,11 +19,12 @@ public class Build {
     private long startTime;
     private long duration;
     private long queueTime;
+    private String cause;
 
     public Build() {
     }
 
-    public Build(String timestamp, int number, String jobName, String result, long startTime, long duration, long queueTime) {
+    public Build(String timestamp, int number, String jobName, String result, long startTime, long duration, long queueTime, String cause) {
         this.timestamp = timestamp;
         this.number = number;
         this.jobName = jobName;
@@ -31,6 +32,7 @@ public class Build {
         this.startTime = startTime;
         this.duration = duration;
         this.queueTime = queueTime;
+        this.cause = cause;
     }
 
     public String getJobName() {
@@ -89,6 +91,14 @@ public class Build {
         this.queueTime = queueTime;
     }
 
+    public String getCause() {
+        return cause;
+    }
+
+    public void setCause(String cause) {
+        this.cause = cause;
+    }
+
 
     @Override
     public String toString() {
@@ -100,6 +110,7 @@ public class Build {
                 ", startTime=" + startTime +
                 ", duration=" + duration +
                 ", queueTime=" + queueTime +
+                ", cause=" + cause +
                 '}';
     }
 }

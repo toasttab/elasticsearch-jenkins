@@ -6,6 +6,7 @@ import hudson.Extension;
 import hudson.Plugin;
 import hudson.model.Job;
 import hudson.model.Run;
+import hudson.model.Cause;
 import hudson.model.TaskListener;
 import hudson.model.listeners.RunListener;
 import io.searchbox.client.JestClient;
@@ -109,6 +110,7 @@ public class BuildListener extends RunListener<Run> {
         build.setNumber(run.getNumber());
         build.setTimestamp(run.getTimestamp());
         build.setQueueTime(action.getQueuingTimeMillis());
+        build.setCause(run.getCause(Cause.class).getShortDescription());
 
         return build;
     }
