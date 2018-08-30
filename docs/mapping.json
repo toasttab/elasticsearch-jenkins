@@ -20,7 +20,7 @@
                 "type": "string"
             },
             "startTime": {
-                "format": "dateOptionalTime",
+                "format": "epoch_millis",
                 "type": "date"
             },
             "queueTime": {
